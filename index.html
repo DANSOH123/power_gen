@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Conventional Power Gen Standards — Reference Guide</title>
+<meta name="description" content="Interactive engineering standards reference for Conventional Power Generation. Instant access to ASME, API, IEEE, IEC, ISO, NFPA, and ASTM codes by Dan Soh.">
+<meta name="keywords" content="ASME BPVC, API 610, API 616, B31.1, IEEE 399, ISO 20816, Power Generation Engineering Standards, Dan Soh">
+<meta name="author" content="Dan Soh">
+
+<!-- Open Graph Meta Tags for LinkedIn, Facebook, and WhatsApp Link Previews -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://conventional-power-standards.vercel.app/">
+<meta property="og:title" content="⚡ Conventional Power Gen Standards — Interactive Reference Guide">
+<meta property="og:description" content="Free interactive engineering standards reference tool mapping 57+ ASME, API, IEEE, IEC, ISO, NFPA, and ASTM codes across power plant project lifecycles. Developed by Dan Soh.">
+<meta property="og:site_name" content="Conventional Power Gen Standards">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://conventional-power-standards.vercel.app/">
+<meta name="twitter:title" content="⚡ Conventional Power Gen Standards — Reference Guide by Dan Soh">
+<meta name="twitter:description" content="Free interactive engineering standards reference tool mapping ASME, API, IEEE, IEC, ISO, NFPA, and ASTM codes.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google AdSense Live Publisher Script -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1830177383183389" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --bg: #0a0d14;
+    --bg2: #0f1320;
+    --bg3: #151b2e;
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.08);
+    --asme: #2196f3;
+    --api: #ff6d00;
+    --ieee: #ce93d8;
+    --iec: #b39ddb;
+    --iso: #66bb6a;
+    --nfpa: #ef5350;
+    --astm: #a1887f;
+    --aws: #ffcc02;
+    --ampp: #80deea;
+    --tema: #f48fb1;
+    --life: #26c6da;
+    --text: #e8eaf6;
+    --text-dim: #90a4ae;
+    --gold: #ffd54f;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 10%, rgba(33,150,243,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,109,0,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 50% 50%, rgba(206,147,216,0.04) 0%, transparent 70%);
+    pointer-events:none; z-index:0;
+  }
+
+  header {
+    position: sticky; top:0; z-index:100;
+    background: rgba(10,13,20,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0 2rem;
+  }
+
+  .header-inner {
+    max-width: 1600px; margin: 0 auto;
+    display: flex; align-items: center; gap: 2rem;
+    height: 64px;
+  }
+
+  .logo {
+    font-size: 1.15rem; font-weight: 800;
+    background: linear-gradient(135deg, #42a5f5, #ce93d8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    white-space: nowrap; flex-shrink:0;
+    text-decoration: none;
+  }
+
+  .search-wrap {
+    flex: 1; position: relative; max-width: 360px;
+  }
+
+  .search-wrap input {
+    width: 100%;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 8px 14px 8px 36px;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .search-wrap input:focus { border-color: var(--asme); }
+  .search-wrap input::placeholder { color: var(--text-dim); }
+  .search-icon {
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    color: var(--text-dim); pointer-events:none;
+  }
+
+  .author-tag {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #42a5f5;
+    background: rgba(33,150,243,0.1);
+    border: 1px solid rgba(33,150,243,0.25);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .tabs {
+    display: flex; gap: 0;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--glass-border);
+    overflow-x: auto;
+    padding: 0 2rem;
+    position: sticky; top: 64px; z-index: 99;
+  }
+  .tabs::-webkit-scrollbar { height: 3px; }
+
+  .tab {
+    padding: 12px 18px;
+    font-size: 0.82rem; font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    color: var(--text-dim);
+    transition: all .2s;
+    user-select: none;
+  }
+  .tab:hover { color: var(--text); }
+  .tab[data-tab="all"].active    { border-color: var(--gold);  color: var(--gold); }
+  .tab[data-tab="asme"].active   { border-color: var(--asme);  color: var(--asme); }
+  .tab[data-tab="api"].active    { border-color: var(--api);   color: var(--api); }
+  .tab[data-tab="ieee"].active   { border-color: var(--ieee);  color: var(--ieee); }
+  .tab[data-tab="iso"].active    { border-color: var(--iso);   color: var(--iso); }
+  .tab[data-tab="fire"].active   { border-color: var(--nfpa);  color: var(--nfpa); }
+  .tab[data-tab="lifecycle"].active { border-color: var(--life); color: var(--life); }
+
+  .main {
+    max-width: 1600px; margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 370px;
+    gap: 1.5rem;
+    position: relative; z-index:1;
+    flex: 1;
+  }
+
+  .panel { display: none; animation: fadeIn .3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+  .flow-group {
+    margin-bottom: 1.25rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 1.25rem;
+  }
+
+  .flow-group-title {
+    font-size: 0.88rem; font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .flow-row { display: flex; gap: 0.65rem; flex-wrap: wrap; position: relative; }
+
+  .std-card {
+    position: relative;
+    background: var(--bg3);
+    border: 1px solid var(--glass-border);
+    border-radius: 9px;
+    padding: 11px 13px;
+    cursor: pointer;
+    transition: all .22s cubic-bezier(.4,0,.2,1);
+    min-width: 110px;
+    max-width: 190px;
+    flex: 0 0 auto;
+  }
+
+  .std-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  .std-card.active-selected {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 2px var(--gold), 0 8px 24px rgba(0,0,0,0.6) !important;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .card-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--card-color, #42a5f5);
+    margin-bottom: 3px;
+  }
+  .card-name { font-size: 0.76rem; font-weight: 500; color: var(--text); line-height: 1.35; }
+  .card-tag {
+    display: inline-block;
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px; padding: 2px 5px; margin-top: 5px;
+    color: var(--text-dim);
+  }
+
+  .asme { --card-color: var(--asme); }
+  .api  { --card-color: var(--api);  }
+  .ieee { --card-color: var(--ieee); }
+  .iec  { --card-color: var(--iec);  }
+  .iso  { --card-color: var(--iso);  }
+  .nfpa { --card-color: var(--nfpa); }
+  .astm { --card-color: var(--astm); }
+  .aws  { --card-color: var(--aws);  }
+  .ampp { --card-color: var(--ampp); }
+  .tema { --card-color: var(--tema); }
+
+  /* MOBILE INLINE DETAIL BOX */
+  .mobile-inline-detail {
+    display: none;
+    width: 100%;
+    flex-basis: 100%;
+    background: var(--bg2);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 0.75rem 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    animation: fadeIn .3s ease;
+    z-index: 10;
+  }
+
+  /* DESKTOP DETAIL SIDEBAR */
+  .detail-sidebar {
+    position: sticky;
+    top: 116px;
+    height: fit-content;
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
+  }
+  .detail-sidebar::-webkit-scrollbar { width: 4px; }
+  .detail-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+  .detail-panel {
+    background: var(--bg2);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+
+  .detail-empty { text-align: center; padding: 3rem 1rem; color: var(--text-dim); }
+  .detail-empty .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .detail-empty p { font-size: 0.84rem; line-height: 1.65; }
+
+  .detail-body { display: none; }
+  .detail-body.visible { display: block; }
+
+  .detail-header-row {
+    display: flex; align-items: flex-start; gap: 0.9rem; margin-bottom: 1.25rem;
+  }
+
+  .d-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.62rem; font-weight: 800; flex-shrink:0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .d-code { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
+  .d-fullname { font-size: 0.76rem; color: var(--text-dim); line-height: 1.4; }
+
+  .d-badge {
+    display: inline-flex; align-items: center;
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    border-radius: 20px; padding: 3px 9px; margin-bottom: 1rem;
+  }
+
+  .d-label {
+    font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-dim);
+    margin-bottom: 0.45rem; margin-top: 1.1rem;
+  }
+
+  .d-desc { font-size: 0.84rem; color: var(--text); line-height: 1.72; }
+
+  .d-applies { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+  .d-tag {
+    font-size: 0.68rem; background: var(--glass);
+    border: 1px solid var(--glass-border); border-radius: 5px;
+    padding: 2px 7px; color: var(--text-dim);
+  }
+
+  .d-refs { font-size: 0.76rem; color: #90caf9; line-height: 1.65; margin-top: 0.45rem; }
+
+  /* LIFECYCLE */
+  .lifecycle-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.9rem;
+  }
+  .lc-phase {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px; overflow: hidden;
+  }
+  .lc-header {
+    padding: 10px; text-align: center;
+    font-size: 0.78rem; font-weight: 700;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .lc-body { padding: 10px; display: flex; flex-direction: column; gap: 7px; }
+  .lc-body .std-card { max-width: 100%; min-width: unset; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--glass-border);
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .footer-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--asme);
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+  @media (max-width: 1100px) {
+    .main { grid-template-columns: 1fr; }
+    .detail-sidebar { display: none !important; }
+    .lifecycle-grid { grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 650px) {
+    .main { padding: 1rem; }
+    .lifecycle-grid { grid-template-columns: 1fr; }
+    .author-tag { display: none; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">⚡ Conventional Power Gen Standards</a>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search code or keyword…" autocomplete="off">
+    </div>
+    <div class="author-tag">Developed by Dan Soh</div>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" data-tab="all">🗺️ All</div>
+  <div class="tab" data-tab="asme">🔩 ASME</div>
+  <div class="tab" data-tab="api">🛢️ API</div>
+  <div class="tab" data-tab="ieee">⚡ IEEE / IEC</div>
+  <div class="tab" data-tab="iso">🌍 ISO</div>
+  <div class="tab" data-tab="fire">🔥 Fire &amp; Materials</div>
+  <div class="tab" data-tab="lifecycle">🔗 Lifecycle</div>
+</div>
+
+<div class="main">
+  <div class="content-area">
+
+    <!-- ALL STANDARDS PANEL -->
+    <div class="panel active" id="panel-all">
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--asme)">🔩 ASME — Mechanical &amp; Boiler Codes</div>
+        <div class="flow-row" id="ga-asme"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--api)">🛢️ API — Rotating Equipment</div>
+        <div class="flow-row" id="ga-api"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--ieee)">⚡ IEEE — Electrical Power Systems</div>
+        <div class="flow-row" id="ga-ieee"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--iec)">🌐 IEC — International Electrical Standards</div>
+        <div class="flow-row" id="ga-iec"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--iso)">🌍 ISO — Management &amp; Technical Systems</div>
+        <div class="flow-row" id="ga-iso"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--nfpa)">🔥 Fire Safety, Materials, Welding &amp; Corrosion</div>
+        <div class="flow-row" id="ga-fire"></div>
+      </div>
+    </div>
+
+    <!-- ASME PANEL -->
+    <div class="panel" id="panel-asme">
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--asme)">📗 ASME BPVC — Boiler &amp; Pressure Vessel Code</div>
+        <div class="flow-row" id="fg-bpvc"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--asme)">🔵 ASME B31 — Piping Codes</div>
+        <div class="flow-row" id="fg-b31"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--asme)">📊 ASME PTC — Performance Test Codes</div>
+        <div class="flow-row" id="fg-ptc"></div>
+      </div>
+    </div>
+
+    <!-- API PANEL -->
+    <div class="panel" id="panel-api">
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--api)">💧 Pumps</div>
+        <div class="flow-row" id="fg-api-pumps"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--api)">🌀 Turbines</div>
+        <div class="flow-row" id="fg-api-turb"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--api)">💨 Compressors</div>
+        <div class="flow-row" id="fg-api-comp"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--api)">⚙️ Auxiliary &amp; Protection</div>
+        <div class="flow-row" id="fg-api-aux"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--api)">🔧 Miscellaneous</div>
+        <div class="flow-row" id="fg-api-misc"></div>
+      </div>
+    </div>
+
+    <!-- IEEE/IEC PANEL -->
+    <div class="panel" id="panel-ieee">
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--ieee)">🔌 IEEE — Generators &amp; Machines</div>
+        <div class="flow-row" id="fg-ieee-gen"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--ieee)">📈 IEEE — Power System Studies</div>
+        <div class="flow-row" id="fg-ieee-sys"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--ieee)">🛡️ IEEE — Protection &amp; Safety</div>
+        <div class="flow-row" id="fg-ieee-prot"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--ieee)">🔧 IEEE — Installation &amp; Grounding</div>
+        <div class="flow-row" id="fg-ieee-inst"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--iec)">🌐 IEC — International Electrical</div>
+        <div class="flow-row" id="fg-iec"></div>
+      </div>
+    </div>
+
+    <!-- ISO PANEL -->
+    <div class="panel" id="panel-iso">
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--iso)">📋 Management Systems</div>
+        <div class="flow-row" id="fg-iso-mgmt"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--iso)">⚙️ Technical Standards</div>
+        <div class="flow-row" id="fg-iso-tech"></div>
+      </div>
+    </div>
+
+    <!-- FIRE PANEL -->
+    <div class="panel" id="panel-fire">
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--nfpa)">🔥 NFPA — Fire &amp; Electrical Safety</div>
+        <div class="flow-row" id="fg-nfpa"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--astm)">🧱 ASTM — Material Specifications</div>
+        <div class="flow-row" id="fg-astm"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--aws)">🔥 AWS — Welding</div>
+        <div class="flow-row" id="fg-aws"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--ampp)">🛡️ AMPP/NACE — Corrosion Protection</div>
+        <div class="flow-row" id="fg-ampp"></div>
+      </div>
+      <div class="flow-group">
+        <div class="flow-group-title" style="color:var(--tema)">🔁 TEMA — Heat Exchangers</div>
+        <div class="flow-row" id="fg-tema"></div>
+      </div>
+    </div>
+
+    <!-- LIFECYCLE PANEL -->
+    <div class="panel" id="panel-lifecycle">
+      <div style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">Standards mapped to each phase of a power plant project lifecycle — click any block for full details.</div>
+      <div class="lifecycle-grid">
+        <div class="lc-phase">
+          <div class="lc-header" style="background:rgba(33,150,243,0.12);color:var(--asme)">📐 DESIGN</div>
+          <div class="lc-body" id="lc-design"></div>
+        </div>
+        <div class="lc-phase">
+          <div class="lc-header" style="background:rgba(102,187,106,0.12);color:var(--iso)">🏭 FABRICATION</div>
+          <div class="lc-body" id="lc-fab"></div>
+        </div>
+        <div class="lc-phase">
+          <div class="lc-header" style="background:rgba(255,109,0,0.12);color:var(--api)">🔧 INSTALLATION</div>
+          <div class="lc-body" id="lc-install"></div>
+        </div>
+        <div class="lc-phase">
+          <div class="lc-header" style="background:rgba(206,147,216,0.12);color:var(--ieee)">🧪 TESTING</div>
+          <div class="lc-body" id="lc-test"></div>
+        </div>
+        <div class="lc-phase">
+          <div class="lc-header" style="background:rgba(38,198,218,0.12);color:var(--life)">⚙️ OPERATIONS</div>
+          <div class="lc-body" id="lc-ops"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL SIDEBAR (DESKTOP) -->
+  <div class="detail-sidebar">
+    <div class="detail-panel">
+      <div id="detail-empty-msg">
+        <div class="detail-empty">
+          <div class="icon">👆</div>
+          <p><strong>Click any block</strong> to view the complete description, scope, application areas, and linked standards.</p>
+          <br>
+          <p style="font-size:0.74rem">Use the tabs above to filter by domain, or use the search box to find any standard instantly.</p>
+        </div>
+      </div>
+      <div class="detail-body" id="detail-body">
+        <div class="detail-header-row">
+          <div class="d-icon" id="d-icon"></div>
+          <div>
+            <div class="d-code" id="d-code"></div>
+            <div class="d-fullname" id="d-fullname"></div>
+          </div>
+        </div>
+        <div class="d-badge" id="d-badge"></div>
+        <div class="d-label">📖 Purpose &amp; Scope</div>
+        <div class="d-desc" id="d-desc"></div>
+        <div class="d-label">🏭 Applies To</div>
+        <div class="d-applies" id="d-applies"></div>
+        <div id="d-ref-wrap">
+          <div class="d-label">🔗 References &amp; Linked Standards</div>
+          <div class="d-refs" id="d-refs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 Conventional Power Gen Standards — Developed by Dan Soh</div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const STANDARDS = [
+  {id:"bpvc-i",code:"ASME BPVC §I",group:"asme",sub:"bpvc",name:"Power Boilers",fullName:"ASME Boiler & Pressure Vessel Code — Section I: Power Boilers",desc:"The foundational rulebook for designing, fabricating, inspecting, and certifying steam-generating boilers (water-tube and fire-tube) used in power plants. Covers pressure parts including steam drums, superheaters, reheaters, economizers, and headers. Establishes the ASME 'S' stamp certification for manufacturers. Sets allowable working pressures and temperatures for all boiler components.",applies:["Steam boilers","HRSGs (fired sections)","Waste heat boilers","Superheaters","Reheaters","Economizers"],refs:"References ASME BPVC §II (materials), §V (NDE methods), §IX (welding qualifications). B31.1 begins where Section I ends at the first valve outlet."},
+  {id:"bpvc-ii",code:"ASME BPVC §II",group:"asme",sub:"bpvc",name:"Materials",fullName:"ASME BPVC — Section II: Materials",desc:"The master materials library referenced by all other BPVC sections. Part A: Ferrous materials (steel plates, pipes, forgings, castings). Part B: Non-ferrous (aluminum, copper, nickel alloys, titanium). Part C: Welding consumables (electrodes, rods, flux). Part D: Allowable stress tables at elevated temperatures. Engineers check here whether a chosen material is approved for pressure service.",applies:["Pressure vessels","Power boilers","Pressure piping","Heat exchangers","All ASME-stamped fabricated equipment"],refs:"Referenced by §I, §V, §VIII, B31.1, B31.3. Material specs link to ASTM A106, A335, A240, etc."},
+  {id:"bpvc-v",code:"ASME BPVC §V",group:"asme",sub:"bpvc",name:"Nondestructive Examination",fullName:"ASME BPVC — Section V: Nondestructive Examination",desc:"Defines methods to detect flaws in welds and base materials without destroying the component. Methods covered: RT (Radiographic Testing using X-ray/gamma), UT (Ultrasonic Testing), MT (Magnetic Particle), PT (Liquid Penetrant), VT (Visual), ET (Eddy Current), AE (Acoustic Emission), and TOFD (Time of Flight Diffraction). Specifies acceptance/rejection criteria, equipment requirements, and personnel qualification (ASNT Level II/III).",applies:["Pressure vessel welds","Boiler welds","Piping girth welds","Castings and forgings","In-service flaw detection"],refs:"Required by §I, §VIII, B31.1, B31.3. NDE personnel qualified to SNT-TC-1A or ASNT CP-189 standards."},
+  {id:"bpvc-viii-d1",code:"ASME BPVC §VIII D1",group:"asme",sub:"bpvc",name:"Pressure Vessels — By Formula",fullName:"ASME BPVC — Section VIII Div 1: Unfired Pressure Vessels (Design by Formula)",desc:"The most widely used pressure vessel code in the world. Covers design of pressure vessels using simplified formula-based approach (membrane stress equations). Used for steam separators, flash drums, deaerators, drain tanks, receiver vessels, accumulators and most plant pressure vessels. Design pressure up to ~3000 psi for most geometries. Produces the ASME 'U' stamp for manufacturers.",applies:["Steam drums (unfired)","Deaerators","Flash tanks","Heat exchanger shells","Air receivers","Fuel gas knockout drums"],refs:"Material from §II, NDE from §V, welding from §IX. Thermal design of shell-and-tube HX complemented by TEMA standard."},
+  {id:"bpvc-viii-d2",code:"ASME BPVC §VIII D2",group:"asme",sub:"bpvc",name:"Pressure Vessels — By Analysis",fullName:"ASME BPVC — Section VIII Div 2: Alternative Rules (Design by Analysis)",desc:"A more rigorous, higher-strength approach to vessel design using detailed stress analysis including finite element analysis (FEA). Allows higher design stresses (2/3 yield vs 1/4 UTS in Div 1), resulting in thinner walls and significant weight savings for high-pressure vessels. Requires more documentation including a design specification, design report, and fatigue analysis. Compulsory for vessels with cyclic loading.",applies:["High-pressure vessels","HP feedwater heaters","Thick-walled reactor vessels","Gas storage pressure vessels","High-fatigue-cycle vessels"],refs:"References §II and §V. Chosen when weight saving or high pressure justifies the additional analysis cost."},
+  {id:"bpvc-viii-d3",code:"ASME BPVC §VIII D3",group:"asme",sub:"bpvc",name:"Very High Pressure Vessels",fullName:"ASME BPVC — Section VIII Div 3: High Pressure Vessels (>10,000 psi)",desc:"Covers pressure vessels operating above 10,000 psi (689 bar) using a fracture mechanics design approach. Mandatory for vessels where a through-wall crack must not cause brittle fracture before detection (leak-before-break philosophy). Applies to gas storage vessels, hydrogen storage, intensifiers, and special experimental equipment. Very rare in standard power plants.",applies:["High-pressure hydrogen storage","Gas intensifiers","Specialty high-pressure systems","Autoclave vessels"],refs:"References §II, §V, §IX. Often mandates volumetric UT instead of RT for thick walls. Fatigue crack growth analysis required."},
+  {id:"bpvc-ix",code:"ASME BPVC §IX",group:"asme",sub:"bpvc",name:"Welding Qualifications",fullName:"ASME BPVC — Section IX: Welding, Brazing, and Fusing Qualifications",desc:"Establishes requirements for qualifying welding procedures (WPS — Welding Procedure Specification, backed by PQR — Procedure Qualification Record) and individual welders (WPQ — Welder Performance Qualification). Every weld on ASME pressure equipment must be made by a Section IX-qualified welder using a qualified WPS. Defines essential variables that require re-qualification when changed.",applies:["Boiler welds","Pressure vessel welds","Power piping welds","Heat exchanger welds","All ASME-stamped equipment welds"],refs:"Referenced by §I, §VIII, B31.1, B31.3, B31.8. Companion to §V (NDE verifies what §IX qualifies)."},
+  {id:"bpvc-xi",code:"ASME BPVC §XI",group:"asme",sub:"bpvc",name:"In-Service Inspection (Nuclear)",fullName:"ASME BPVC — Section XI: Rules for In-Service Inspection of Nuclear Power Plant Components",desc:"Defines periodic inspection, testing, and repair/replacement rules for nuclear power plant components in service. Covers BWR and PWR reactor vessels, piping, containment structures, and support systems. Establishes examination categories (B-A through B-N), inspection intervals (10-year intervals), acceptance standards for indications, and flaw evaluation procedures using fracture mechanics.",applies:["Nuclear reactor pressure vessels","Nuclear plant piping","Containment structures","PWR/BWR steam generators","Nuclear pump and valve bodies"],refs:"References §II, §V, §IX for repair welding materials, NDE methods and procedure qualifications respectively."},
+  {id:"b31-1",code:"ASME B31.1",group:"asme",sub:"b31",name:"Power Piping",fullName:"ASME B31.1: Power Piping Code",desc:"The primary piping code governing all steam, feedwater, blowdown, extraction steam, drain, vent, and instrument piping inside a power plant. Applies from the boiler outlet (where BPVC §I ends, at the first valve) to the turbine inlet and all auxiliary piping. Covers pressure design (wall thickness), flexibility analysis (Caesar II), support design, materials, fabrication, NDE, and pressure testing.",applies:["Main steam piping","Hot and cold reheat piping","Boiler feedwater piping","Extraction steam lines","Turbine drain systems","Auxiliary steam headers"],refs:"References BPVC §II (materials), §V (NDE), §IX (welding). Begins where BPVC §I ends. High-alloy materials: ASTM A335 (P91)."},
+  {id:"b31-3",code:"ASME B31.3",group:"asme",sub:"b31",name:"Process Piping",fullName:"ASME B31.3: Process Piping Code",desc:"Governs piping in chemical, petroleum refining, and process plants. Used for auxiliary and support systems in power plants: fuel oil piping, chemical dosing (hydrazine, ammonia, amine), water treatment plant piping, cooling water chemistry injection, condensate polishing, and hydrogen gas piping. Three fluid categories: Normal, Category D (low hazard), and Category M (high hazard).",applies:["Fuel oil piping","Chemical dosing systems","Water treatment plant piping","Demineralizer circuits","Hydrogen gas piping (for generators)"],refs:"References BPVC §II, §V, §IX. Often used alongside B31.1 in the same plant for different service categories."},
+  {id:"b31-8",code:"ASME B31.8",group:"asme",sub:"b31",name:"Gas Transmission Piping",fullName:"ASME B31.8: Gas Transmission and Distribution Piping Systems",desc:"Governs the design and construction of natural gas transmission and distribution piping systems including metering stations and fuel gas piping feeding gas turbines. Uses location class factors (1–4) based on population density to set design factor and pressure. Applies from the gas supply main up to the turbine gas control module. Covers piping design, materials, construction, testing, and operations.",applies:["Natural gas supply mains to plant","Fuel gas headers to gas turbines","Metering and pressure regulation stations","Gas compressor discharge piping"],refs:"Interfaces with API 616 (gas turbine fuel system connection) and ASME B31.3 (inside plant process boundary)."},
+  {id:"ptc-6",code:"ASME PTC 6",group:"asme",sub:"ptc",name:"Steam Turbines — Acceptance Test",fullName:"ASME Performance Test Code PTC 6: Steam Turbines",desc:"Defines the procedure for conducting acceptance performance tests on steam turbines to verify guaranteed output (MW) and heat rate (kJ/kWh or BTU/kWh) against contract guarantees. Specifies measurement instruments (calibrated flow meters, pressure transmitters, temperature sensors), uncertainty analysis methodology, and correction curves to bring test results to guaranteed reference conditions. Results are legally binding for EPC contract acceptance.",applies:["Main steam turbine-generators","Backpressure turbines","Condensing steam turbines","Geothermal steam turbines"],refs:"Companion to API 612 (turbine spec). References ASME MFC (flow measurement standards). Uncertainty per ASME PTC 19.1."},
+  {id:"ptc-22",code:"ASME PTC 22",group:"asme",sub:"ptc",name:"Gas Turbines — Acceptance Test",fullName:"ASME Performance Test Code PTC 22: Gas Turbines",desc:"Defines procedure for acceptance testing gas (combustion) turbines to verify shaft output power, thermal efficiency/heat rate, and exhaust conditions (temperature, mass flow, energy content for combined cycle). Includes correction procedures for ambient temperature, pressure, humidity, and fuel composition variations to convert test data to guarantee reference conditions.",applies:["Simple cycle gas turbine generators","Combined cycle gas turbine islands","Gas turbine-driven mechanical drives","Peaking power units"],refs:"Companion to API 616. Exhaust energy test used as input to HRSG and steam cycle commissioning."},
+  {id:"ptc-46",code:"ASME PTC 46",group:"asme",sub:"ptc",name:"Overall Plant Performance Test",fullName:"ASME Performance Test Code PTC 46: Overall Plant Performance",desc:"Evaluates the net electrical output and net heat rate of the ENTIRE power plant as a system, including all auxiliary loads, transformer losses, cooling system losses, and system interactions. Used for CCPP, cogeneration, and multi-unit plants where individual equipment tests fail to capture system-level performance. The governing code for EPC turnkey performance guarantees.",applies:["Combined cycle power plants","Cogeneration facilities","Multi-unit power stations","EPC turnkey contract acceptance testing"],refs:"References PTC 6 (steam turbine), PTC 22 (gas turbine), PTC 30 (air-cooled condensers). Final authority for EPC plant performance guarantee."},
+  {id:"api-610",code:"API 610",group:"api",sub:"pumps",name:"Centrifugal Pumps",fullName:"API Standard 610: Centrifugal Pumps for Petroleum, Petrochemical, and Natural Gas Industries",desc:"The premier specification for heavy-duty centrifugal pumps in critical and continuous service. Key requirements: back-pull-out cartridge design (maintenance without pipe disconnection), double mechanical seals (API 682), API seal flush plans, minimum 3-year continuous operation design life, casing minimum 3mm corrosion allowance, bearing L10 life ≥25,000 hours, API nozzle loads, and detailed hydrostatic and performance testing.",applies:["Boiler feedwater pumps (BFP)","Condensate extraction pumps (CEP)","Cooling water circulation pumps","Fuel oil transfer pumps","Chemical injection pumps"],refs:"Equivalent to ISO 13709. Seal systems per API 682. Monitoring per API 670. Drivers per API 611/616 (if turbine driven)."},
+  {id:"api-682",code:"API 682",group:"api",sub:"pumps",name:"Shaft Sealing Systems",fullName:"API Standard 682: Shaft Sealing Systems for Centrifugal and Rotary Pumps",desc:"Defines mechanical seal types (Type 1/2/3 — single/dual unpressurized/dual pressurized), arrangements, and flush plans (Plan 11, 23, 52, 53A/B/C, 54, 65, 72, 75) for centrifugal pumps. Companion to API 610; when API 610 mandates a seal, API 682 defines the exact type, arrangement, and flush plan based on fluid temperature, toxicity, vapor pressure, and containment requirements.",applies:["All API 610 pump seal specifications","High-temperature BFP seals","Hydrocarbon service pump seals","Toxic/hazardous fluid pump seals"],refs:"Always used alongside API 610. Flush plan selection from API 682 Annex D based on fluid criticality."},
+  {id:"api-611",code:"API 611",group:"api",sub:"turb",name:"General-Purpose Steam Turbines",fullName:"API Standard 611: General-Purpose Steam Turbines for Petroleum, Chemical, and Gas Industry Services",desc:"Covers smaller, non-critical steam turbines (typically <2 MW continuous service) driving pumps, fans, or compressors. These are simpler, lower-cost turbines with less stringent requirements than API 612. Typical applications include turbine-driven boiler feedwater pump (TDBFP) backup drives, small centrifugal pump drives, and fan drives where steam utilization is desired for cycle efficiency.",applies:["Turbine-driven auxiliary pump drivers","Small fan drives (<2 MW)","Utility steam turbine drivers","Non-critical continuous service turbines"],refs:"API 614 (lube oil system), API 670 (vibration monitoring), API 671 (couplings). For larger/critical turbines: upgrade to API 612."},
+  {id:"api-612",code:"API 612",group:"api",sub:"turb",name:"Special-Purpose Steam Turbines",fullName:"API Standard 612: Special-Purpose Steam Turbines for Petroleum, Chemical, and Gas Industry Services",desc:"The premium specification for large, critical, continuously operating steam turbines (>2 MW, or any turbine where unplanned shutdown is unacceptable). Requires: designed for 3-year continuous operation, complete rotordynamic analysis (lateral and torsional), API 614 lube oil system, API 670 protection, detailed material certification, mechanical run test and overspeed trip test witnessed by purchaser, and comprehensive documentation package (design drawings, engineering calculations, test reports).",applies:["Main power station steam turbine-generators (STGs)","Large critical pump turbine drives","Critical industrial steam turbines"],refs:"API 614 (mandatory lube system), API 670 (machinery protection), API 671 (couplings), ISO 1940-1 (balance grade G2.5). Performance test by ASME PTC 6."},
+  {id:"api-616",code:"API 616",group:"api",sub:"turb",name:"Gas Turbines",fullName:"API Standard 616: Gas Turbines for the Petroleum, Chemical, and Gas Industry Services",desc:"The primary specification for industrial combustion gas turbines. Covers: gas generator and power turbine design, combustor and fuel system requirements, inlet and exhaust system design, lube/seal/control oil systems (API 614), monitoring and protection (API 670), coupling (API 671), controls and instrumentation (including startup, normal operation, shutdown, trip sequences), site acceptance test, and comprehensive documentation requirements.",applies:["Simple cycle gas turbine generators","CCPP gas turbine generators","Gas turbine-driven mechanical compressors","Gas turbine peaking power units"],refs:"Lube: API 614. Couplings: API 671. Protection: API 670. Fuel piping: ASME B31.8. Performance test: ASME PTC 22. Installation: API 686."},
+  {id:"api-617",code:"API 617",group:"api",sub:"comp",name:"Centrifugal & Axial Compressors",fullName:"API Standard 617: Axial and Centrifugal Compressors and Expander-Compressors",desc:"Specification for large, special-purpose centrifugal and axial compressors in critical service. Covers: design requirements, material specifications, impeller and casing design, rotor dynamics (lateral critical speeds, stability analysis), surge control and avoidance, mechanical seals (API 682 or dry gas seals), lube/seal oil system (API 614), instrumentation and control, mechanical run test, and performance test (ASME PTC 10).",applies:["Large plant air compressors (special purpose)","Process gas compressors","Expander-generators in power cycles","GT integral compressor stages when purchased separately"],refs:"Companion: API 614 (lube/seal oil), API 670 (protection), API 613 (gears if speed change needed), API 682 (for liquid-lubricated seals)."},
+  {id:"api-618",code:"API 618",group:"api",sub:"comp",name:"Reciprocating Compressors",fullName:"API Standard 618: Reciprocating Compressors for Petroleum, Chemical, and Gas Industry Services",desc:"Specification for reciprocating (piston-type) compressors. Includes design approach classes (D/C/B/A from least to most stringent). Mandates pulsation and vibration analysis (API 618 Appendix M/Appendix C) to prevent piping vibration failures. Covers cylinder design, rod load calculations, valve design, frame and running gear, pressure vessel code compliance for cylinders, and detailed testing requirements.",applies:["Instrument/service air compressors (large, critical)","Gas boosting compressors","Seal gas/buffer gas compressors","Startup gas compressors for gas turbines"],refs:"API 614 (lube system), API 670 (protection monitoring). Pulsation analysis per API 618 App M is critical for piping integrity."},
+  {id:"api-619",code:"API 619",group:"api",sub:"comp",name:"Rotary PD Compressors",fullName:"API Standard 619: Rotary-Type Positive Displacement Compressors",desc:"Covers screw compressors, lobe blowers, sliding vane, and other rotary positive displacement compressors for special-purpose service. Requirements include: 3-year continuous operation design, rotordynamic considerations, pressure casing to pressure vessel code, lube oil or air/water-cooled operation options, and noise/vibration limits. Less stringent than API 617 but still special-purpose construction.",applies:["Plant instrument air systems (oil-injected or dry screw)","Seal gas compressors","Fuel gas boosters","Dry screw vacuum compressors"],refs:"API 614 (lube where applicable), API 670 (vibration monitoring for large units), ASME BPVC §VIII (pressure casing)."},
+  {id:"api-613",code:"API 613",group:"api",sub:"aux",name:"Special-Purpose Gear Units",fullName:"API Standard 613: Special-Purpose Gear Units for Petroleum, Chemical, and Gas Industry Services",desc:"Covers high-reliability speed-increasing and speed-reducing gear units for critical rotating equipment. Specifies AGMA gear quality class (12 and above), material requirements (case-hardened alloy steel), housing design (horizontally split, gear element removable), bearing specifications (tilting pad recommended for high speed), lubrication system (API 614), dynamic balancing requirements, and noise/vibration acceptance testing.",applies:["Gas turbine-to-generator speed reducers","Pump turbine speed increasers","High-speed centrifugal compressor gearboxes","Turboexpander gearboxes"],refs:"API 614 (dedicated lube oil system for gearbox), API 670 (gear mesh frequency vibration monitoring), ISO 1940-1 (gear rotor balancing)."},
+  {id:"api-614",code:"API 614",group:"api",sub:"aux",name:"Lube & Seal Oil Systems",fullName:"API Standard 614: Lubrication, Shaft-Sealing and Control-Oil Systems and Auxiliaries",desc:"The comprehensive specification for lube oil systems serving all critical rotating equipment. Chapter 2: General requirements for lube oil systems (reservoir, main/standby/emergency DC oil pumps, oil coolers, duplex filters, pressure control valves, temperature regulating valves). Chapter 3: Shaft sealing and control oil requirements. Covers oil cleanliness standards (ISO 4406), heater/cooler sizing, rundown tanks, and all instrumentation (pressure, temperature, level, flow switches and transmitters).",applies:["Gas turbine lube oil systems","Steam turbine lube oil systems","Large compressor lube/seal oil systems","Gearbox lube systems"],refs:"Mandatory for API 611, 612, 613, 616, 617, 618. Oil cleanliness per ISO 4406. Cooler design per TEMA/ASME BPVC §VIII."},
+  {id:"api-670",code:"API 670",group:"api",sub:"aux",name:"Machinery Protection Systems",fullName:"API Standard 670: Machinery Protection Systems",desc:"The specification for machinery monitoring and protection instrumentation. Covers: radial shaft vibration (proximity probes, eddy current type, Bently Nevada-style), axial shaft position (thrust), shaft speed and overspeed detection, key-phasor for phase reference, casing vibration (accelerometers), bearing metal temperature (RTDs/thermocouples), differential expansion (steam turbines), rod drop (reciprocating compressors). Defines signal conditioning, voting logic (1oo2, 2oo3), and system wiring requirements.",applies:["Gas turbines","Steam turbines","Large centrifugal and axial compressors","API 610 pumps (critical)","All special-purpose rotating equipment"],refs:"Vibration alarm/trip levels from ISO 20816 (casing) and ISO 7919 (shaft). Referenced by API 611, 612, 613, 616, 617."},
+  {id:"api-671",code:"API 671",group:"api",sub:"aux",name:"Special-Purpose Couplings",fullName:"API Standard 671: Special-Purpose Couplings for Petroleum, Chemical, and Gas Industry Services",desc:"Covers flexible couplings connecting rotating equipment drivers to driven equipment in special-purpose service. Specifies: coupling types (disc pack, diaphragm, gear coupling), allowable angular and parallel misalignment, torsional stiffness (critical for torsional analysis), balance grade (ISO 1940-1 G2.5 minimum), critical speed margins, and acceptance testing (balance test, overspeed test, torque test). Coupling failure mode must be 'fail-safe' (no driving torque transfer after failure).",applies:["Turbine-to-generator flexible couplings","Turbine-to-compressor couplings","API-spec pump drive couplings","All special-purpose rotating equipment connections"],refs:"Referenced by API 611, 612, 616, 617. Coupling balance per ISO 1940-1. Torsional analysis required per API 612/617 scope."},
+  {id:"api-686",code:"API 686",group:"api",sub:"misc",name:"Machinery Installation RP",fullName:"API Recommended Practice 686: Recommended Practices for Machinery Installation",desc:"The practical guide for correctly installing rotating machinery. Covers: foundation design principles (sufficient mass, natural frequency avoidance), concrete preparation and surface profile for epoxy grouting, epoxy grout selection and pouring procedure, shimming and leveling sequence, pre-alignment checks (soft foot, pipe strain), rough alignment (optical or laser), final precision alignment (reverse indicator method or laser tracker), pre-commissioning oil flushing, and initial startup procedure.",applies:["All rotating equipment installation","Foundation and grouting for turbines/compressors","Shaft alignment activities","Pre-commissioning cleaning and flushing"],refs:"References API 610, 611, 612, 613, 614, 616, 617 (the equipment it installs). Alignment limits from respective equipment standards."},
+  {id:"api-660",code:"API 660",group:"api",sub:"misc",name:"Shell-and-Tube Heat Exchangers",fullName:"API Standard 660: Shell-and-Tube Heat Exchangers",desc:"Specification for shell-and-tube heat exchangers in petroleum and power service. Supplements TEMA (thermal design) and ASME BPVC §VIII (pressure design) by adding API-specific requirements: allowable nozzle loads (more stringent than TEMA), minimum corrosion allowances, bundle pull clearance requirements, minimum tube wall thickness, and inspection/testing requirements (hydrostatic test, tube-to-tubesheet joint test, and in-service test after cleaning).",applies:["Lube oil coolers","Intercoolers and aftercoolers","Process cooling and heating HX","Gland steam condensers"],refs:"Thermal design by TEMA (R, C, or B class). Pressure containment by ASME BPVC §VIII. Complemented by API 661 (for air coolers)."},
+  {id:"api-661",code:"API 661",group:"api",sub:"misc",name:"Air-Cooled Heat Exchangers",fullName:"API Standard 661: Air-Cooled Heat Exchangers for General Refinery Service",desc:"Specification for fin-fan (air-cooled) heat exchangers. Covers: tube bundle design (bare tube, extruded fin, embedded fin, L-foot, soldered), fin-tube specifications (material, fin density, height), fan design (axial flow, induced vs forced draft), fan drive (electric motor, gear drive, V-belt), structural framework, noise limits, and winterization provisions. Used where cooling water is scarce or costly.",applies:["Air-cooled lube oil coolers","Air-cooled condensers (ACC)","Gas turbine inlet coolers","Hydrogen cooler (generator cooling)","Process gas cooling"],refs:"Equivalent to ISO 13706 (international projects). Pressure containment per ASME BPVC §VIII. Motor per IEC 60034 or NEMA MG-1."},
+  {id:"api-936",code:"API 936",group:"api",sub:"misc",name:"Refractory Installation QC",fullName:"API Recommended Practice 936: Refractory Installation Quality Control",desc:"Quality control guidelines for the installation of refractory (heat-resistant ceramic/castable) linings in fired equipment. Covers: material selection (castable, plastic, brick, ceramic fiber blanket), surface preparation (anchor design, cleaning), mixing procedures (water ratio, mixing time), application methods (casting, gunning, ramming, shotcreting), curing requirements (time, humidity control), dryout schedule (critical to prevent steam-spalling), and inspection criteria (hammer sounding, core sampling).",applies:["Gas turbine exhaust duct linings","HRSG duct burner combustion chambers","Fired heater radiant sections","Waste heat boiler refractory linings","Incinerator refractory"],refs:"Referenced by API 616 (GT exhaust system) and API 560 (fired heater design). Dryout procedure linked to burner management (NFPA 85)."},
+  {id:"ieee-115",code:"IEEE Std 115",group:"ieee",sub:"gen",name:"Synchronous Machine Tests",fullName:"IEEE Standard 115: Test Procedures for Synchronous Machines",desc:"Defines acceptance test procedures for synchronous generators and motors: heat run (temperature rise at full load), open circuit and short circuit characteristic tests, short circuit ratio (SCR), load rejection test, mechanical run test, noise and vibration measurement, and determination of machine constants (Xd, Xq, X'd, X''d, T'd, T''d) used in protection relay setting and power system stability studies.",applies:["Main power generators (STG, GTG)","Synchronous condensers","Large synchronous motors","Generator acceptance testing"],refs:"Machine parameters (Xd, Xq) feed into IEEE 399 (stability studies) and protection relay settings (IEEE C37.102 generator protection guide)."},
+  {id:"ieee-112",code:"IEEE Std 112",group:"ieee",sub:"gen",name:"Induction Motor Tests",fullName:"IEEE Standard 112: Test Procedure for Polyphase Induction Motors and Generators",desc:"Test procedure for determining efficiency, power factor, slip, torque, and starting characteristics of polyphase induction motors. Method B (input-output with segregated losses, using dynamometer) is preferred for accuracy. Critical for verifying motor efficiency class (NEMA Premium, IE3, IE4) for energy management compliance and EPC guarantees on auxiliary motor efficiency.",applies:["Cooling pump drive motors","Forced draft and induced draft fan motors","Compressor drive motors","High-voltage auxiliary induction motors"],refs:"Efficiency classes from IEC 60034-30 (IE1-IE4). Motor starting impact on power system per IEEE 399 motor starting study."},
+  {id:"ieee-399",code:"IEEE Std 399",group:"ieee",sub:"sys",name:"Power System Analysis",fullName:"IEEE Recommended Practice for Industrial Power System Analysis (Brown Book)",desc:"The comprehensive guide for power system engineering studies required for new power plant design: load flow (voltage levels under full and partial load), short circuit analysis (ANSI/IEEE method using X/R ratios and multiplying factors), motor starting analysis (voltage dip limits), harmonic flow studies, reliability analysis (SAIDI, SAIFI), and cable ampacity calculations. The essential reference for all industrial power system engineers.",applies:["New power plant electrical design","Generator and transformer sizing","Cable sizing and voltage drop","Motor starting impact assessment","Protection study basis"],refs:"Feeds into IEEE 242 (protection coordination), IEEE 519 (harmonic limits). Generator data from IEEE 115, motor data from manufacturers."},
+  {id:"ieee-519",code:"IEEE Std 519",group:"ieee",sub:"sys",name:"Harmonic Distortion Limits",fullName:"IEEE Recommended Practice for Harmonic Control in Electric Power Systems",desc:"Establishes voltage and current harmonic distortion limits at the point of common coupling (PCC) between an industrial facility and the utility grid. Individual harmonic and total harmonic distortion (THD) limits vary by system voltage level. Key limit: 5% voltage THD for most systems up to 69 kV. Critical for plants with many variable frequency drives (VFDs), HVDC connections, large rectifiers, and power electronics-based generation.",applies:["Plants with VFD-driven pumps/fans","Wind and solar plants with inverters","HVDC transmission connections","UPS and large rectifier systems","Diesel generator facilities with non-linear loads"],refs:"Harmonic analysis uses IEEE 399 power system model. Filters sized to meet IEEE 519. IEC 61000-3 is the international equivalent."},
+  {id:"ieee-446",code:"IEEE Std 446",group:"ieee",sub:"sys",name:"Emergency Power Systems",fullName:"IEEE Recommended Practice for Emergency and Standby Power Systems (Orange Book)",desc:"Guide for designing emergency and standby power systems for industrial facilities. Covers: classification of loads (critical, emergency, standby), emergency diesel generator sizing (including motor starting kVA requirement), automatic transfer switch (ATS) requirements and timing, UPS selection (off-line, line-interactive, on-line double conversion), battery sizing calculation (Peukert's equation), and 125VDC vital power systems for protection and control.",applies:["Emergency diesel generator systems","UPS systems for DCS and protection relays","125VDC battery systems","Critical plant loads classification","Plant blackstart capability"],refs:"Protection and coordination of emergency system per IEEE 242. Installation per NFPA 70 (NEC Articles 700, 701, 702, 708)."},
+  {id:"ieee-242",code:"IEEE Std 242",group:"ieee",sub:"prot",name:"Protection & Coordination",fullName:"IEEE Recommended Practice for Protection and Coordination of Industrial Power Systems (Buff Book)",desc:"The comprehensive guide for selecting, setting, and coordinating protective relays and devices in industrial power systems. Covers: time-current characteristic (TCC) curve coordination methodology, generator protection (87G differential, 51V voltage-controlled overcurrent, 40 loss of excitation, 21 distance, 81 frequency, 59 overvoltage), power transformer protection (87T, 51), motor protection (49 thermal, 50/51 overcurrent), and bus protection. Includes worked examples of coordination studies.",applies:["Generator protection relay settings","Transformer differential protection","Motor protection coordination","Distribution feeder protection","Bus protection schemes"],refs:"Uses system impedance data from IEEE 399 study. Relay hardware specifications per IEEE C37 series. Arc flash study per IEEE 1584."},
+  {id:"ieee-1584",code:"IEEE Std 1584",group:"ieee",sub:"prot",name:"Arc Flash Hazard Calculations",fullName:"IEEE Guide for Performing Arc Flash Hazard Calculations",desc:"The engineering method for calculating arc flash incident energy (in cal/cm²) at electrical panels, switchgear, MCCs, and junction boxes. Determines arc flash boundary (AFB) — the distance at which incident energy equals 1.2 cal/cm² (second-degree burn threshold). Results determine required PPE category (1=4 cal/cm², 2=8, 3=25, 4=40) per NFPA 70E. The 2018 edition introduced new empirical equations based on extensive arc flash testing with improved accuracy.",applies:["MV and LV switchgear","Motor control centers (MCCs)","Power distribution boards","Generator step-up transformer LV terminals","All energized electrical work locations"],refs:"System fault current from IEEE 399. PPE requirements from NFPA 70E Table 130.5. Protective device data from IEEE C37 series."},
+  {id:"ieee-c37",code:"IEEE C37 Series",group:"ieee",sub:"prot",name:"Switchgear & Protective Relays",fullName:"IEEE C37 Series: Switchgear, Protective Relays, and Relaying Standards",desc:"A comprehensive series: C37.06 (preferred ratings for HV circuit breakers), C37.09 (test procedures for HV AC circuit breakers), C37.90 (relays and relay systems testing — surge withstand, fast transient tests), C37.91 (guide for protective relay applications on power transformers), C37.96 (guide for AC motor protection), C37.99 (guide for protection of shunt capacitor banks), C37.102 (guide for AC generator protection).",applies:["HV/MV circuit breaker specification","Generator protection relay application","Transformer protection design","Motor protection relay selection","Capacitor bank protection"],refs:"Protection settings philosophy from IEEE 242. Generator data from IEEE 115. Arc flash from IEEE 1584 (breaker clearing time)."},
+  {id:"ieee-80",code:"IEEE Std 80",group:"ieee",sub:"inst",name:"Substation Grounding",fullName:"IEEE Guide for Safety in AC Substation Grounding",desc:"The engineering guide for designing safe grounding systems in HV and MV substations. Calculates tolerable touch voltage (voltage between a person's hands and feet during a fault) and step voltage (voltage between two feet during a fault) limits based on body weight, soil resistivity, fault clearing time, and surface material (crushed rock). Designs the copper grid conductor size, mesh spacing, burial depth, and required driven ground rods.",applies:["Plant main 132/33kV substation grounding grid","GSU transformer area grounding","HV outdoor switchyard grounding","Generator neutral earthing"],refs:"Fault current magnitude from IEEE 399. Complements IEEE 142 (plant equipment grounding) and NFPA 70 (NEC Article 250 grounding installation)."},
+  {id:"ieee-142",code:"IEEE Std 142",group:"ieee",sub:"inst",name:"Industrial Plant Grounding",fullName:"IEEE Recommended Practice for Grounding of Industrial and Commercial Power Systems (Green Book)",desc:"The Green Book covers complete grounding philosophy for industrial plants: equipment grounding (fault current return path, sizing of grounding conductors), system grounding (neutral grounding methods — solid, resistance, reactance, ungrounded — and their impact on fault detection and personnel safety), static grounding for fuel handling areas (prevents ignition from electrostatic discharge), and instrumentation signal grounding (single-point vs multi-point).",applies:["Plant electrical distribution equipment grounding","Motor frame and equipment bonding","Static grounding in fuel handling areas","Instrument and control signal grounding","Lightning down-conductor bonding"],refs:"Companion to IEEE 80 (for substation grid specifically). Lightning per NFPA 780. NEC Article 250 (installation code for grounding conductors)."},
+  {id:"iec-60034",code:"IEC 60034",group:"iec",sub:"iec",name:"Rotating Electrical Machines",fullName:"IEC 60034 Series: Rotating Electrical Machines",desc:"The international standard series for generators and motors. Key parts: 60034-1 (ratings and performance — kW, voltage, frequency, power factor), 60034-2-1 (standard methods for determining losses/efficiency), 60034-5 (IP protection degree — IP44, IP54, IP55, TEFC), 60034-6 (cooling method IC codes — IC01, IC81W), 60034-8 (terminal markings U/V/W), 60034-12 (starting performance of cage induction motors), 60034-30 (efficiency classes IE1 through IE4).",applies:["Power generators in all power plants","Synchronous generators","Induction motors (all auxiliary equipment)","Wound rotor motors","Permanent magnet motors"],refs:"Equivalent to IEEE 115 (generators) and IEEE 112 (motors) on international projects. Motor efficiency classes link to ISO 50001 energy management."},
+  {id:"iec-60076",code:"IEC 60076",group:"iec",sub:"iec",name:"Power Transformers",fullName:"IEC 60076 Series: Power Transformers",desc:"International standard series for power transformers: 60076-1 (rating, losses, cooling — ONAN, ONAF, OFAF), 60076-2 (temperature rise limits — top oil, winding hot spot), 60076-3 (insulation levels and dielectric tests — AC withstand, lightning impulse, switching impulse), 60076-5 (ability to withstand short circuit forces), 60076-7 (loading guidelines — dynamic thermal modeling), 60076-21 (small transformers).",applies:["Generator step-up transformers (GSU)","Unit auxiliary transformers (UAT)","Station service transformers","HV/MV autotransformers","Instrument transformers (CTs, VTs)"],refs:"International equivalent to IEEE C57 series. Protection per IEC 60255 or IEEE C37.91. Insulation monitoring per IEC 60422 (oil testing)."},
+  {id:"iec-60079",code:"IEC 60079",group:"iec",sub:"iec",name:"Explosive Atmospheres",fullName:"IEC 60079 Series: Explosive Atmospheres — Equipment Classification",desc:"The definitive international series for hazardous area classification and equipment selection. IEC 60079-10-1 (classification of gaseous atmospheres: Zone 0 — continuous, Zone 1 — likely, Zone 2 — unlikely). IEC 60079-10-2 (classification of dust atmospheres). IEC 60079-0 (general requirements for Ex equipment). Protection methods: Ex d (flameproof), Ex e (increased safety), Ex n (non-sparking), Ex p (pressurized), Ex i (intrinsic safety).",applies:["Gas turbine fuel gas skid area (Zone 1/2)","Lube oil storage and pump area (Zone 2)","Battery room (H₂ gas — Zone 1)","H₂-cooled generator terminal box area","Flammable chemical storage areas"],refs:"Zone classification feeds into electrical equipment selection. USA equivalent: NEC Article 500 (Class I Div 1/2 system) or API 505."},
+  {id:"iec-61000",code:"IEC 61000",group:"iec",sub:"iec",name:"Electromagnetic Compatibility",fullName:"IEC 61000 Series: Electromagnetic Compatibility (EMC)",desc:"Comprehensive EMC series: 61000-2 (EMC environment — voltage harmonics, flicker, dips, imbalance levels in low and medium voltage systems), 61000-3-2 (harmonic current emission limits for equipment ≤16A), 61000-3-3 (voltage fluctuations and flicker), 61000-4-2 (electrostatic discharge immunity), 61000-4-4 (electrical fast transient/burst immunity), 61000-4-5 (surge immunity). Required for CE marking in Europe.",applies:["All electrical equipment in power plants","VFD electromagnetic emissions testing","Control system EMC immunity testing","Generator output power quality","Grid code compliance"],refs:"Voltage THD limits complement IEEE 519 (at PCC). CE marking in Europe requires IEC 61000-3 compliance. Grid code may specify IEC 61000-4 immunity levels."},
+  {id:"iec-61400",code:"IEC 61400",group:"iec",sub:"iec",name:"Wind Turbines",fullName:"IEC 61400 Series: Wind Turbines — Design Requirements",desc:"The global standard family for wind turbines: 61400-1 (structural design — loads, fatigue, extreme events, safety classes), 61400-2 (small wind turbines ≤200 m² rotor), 61400-11 (acoustic noise measurement), 61400-12-1 (power performance testing and measurement), 61400-21 (power quality — harmonics, flicker, voltage dip response), 61400-22 (conformity testing), 61400-25 (SCADA communication protocol).",applies:["Wind turbine generators","Onshore and offshore wind farms","Hybrid wind-thermal power plants","Floating offshore wind systems"],refs:"Grid connection per IEC 61400-21. Power quality at PCC per IEC 61000. Foundation/civil per EN 1997 (Eurocode 7). SCADA per IEC 61400-25."},
+  {id:"iso-9001",code:"ISO 9001",group:"iso",sub:"mgmt",name:"Quality Management System",fullName:"ISO 9001: Quality Management Systems — Requirements",desc:"The world's most widely adopted management system standard (over 1 million certified organizations). Establishes a Plan-Do-Check-Act (PDCA) framework based on 7 quality principles: customer focus, leadership commitment, people engagement, process approach, evidence-based decision making, relationship management, and continual improvement. In power projects: required for all major equipment vendors (turbine, boiler, generator OEMs), EPC contractors, and plant operators.",applies:["Equipment manufacturer vendor qualification","EPC contractor quality system","Commissioning contractor assessment","Plant quality management programs","Procurement process control"],refs:"Gateway requirement for ISO 14001 and ISO 45001 (same PDCA structure). Vendor QMS per ISO 9001 mandated by most power utility procurement specs."},
+  {id:"iso-14001",code:"ISO 14001",group:"iso",sub:"mgmt",name:"Environmental Management System",fullName:"ISO 14001: Environmental Management Systems — Requirements",desc:"Framework for systematically managing the environmental impacts of an organization's activities. Requires: identification of environmental aspects (NOx, SOx, CO2 emissions, water discharge, waste generation, chemical storage, land contamination), determination of legal requirements, setting environmental objectives and targets, and continual improvement. Uses the same PDCA framework as ISO 9001. Required for environmental operating permits in many countries and ESG reporting.",applies:["Plant air emissions management (NOx, SOx, CO2)","Wastewater treatment and discharge","Hazardous waste management","Chemical storage and spill prevention","ESG and carbon reporting programs"],refs:"Same PDCA structure as ISO 9001. Emissions data links to EU ETS / EPA regulations. Energy use links to ISO 50001."},
+  {id:"iso-45001",code:"ISO 45001",group:"iso",sub:"mgmt",name:"Occupational Health & Safety",fullName:"ISO 45001: Occupational Health and Safety Management Systems",desc:"Replaced OHSAS 18001 in 2018. Systematic approach to workplace safety: hazard identification and risk assessment, legal compliance evaluation, operational controls (permit-to-work, LOTO, confined space entry, hot work, working at height, crane and lifting operations, chemical handling), incident investigation and corrective action, emergency planning and response, and worker consultation. Uses PDCA framework consistent with ISO 9001 and ISO 14001.",applies:["Plant safety management system","Permit-to-work (PTW) system","Lock-out/tag-out (LOTO) program","Contractor safety management","Emergency response planning"],refs:"Same PDCA structure as ISO 9001 and ISO 14001 (integrated HSE management). Links to local OSHA regulations, NFPA 70E (arc flash PPE), and IEEE 1584 (arc flash calculations)."},
+  {id:"iso-50001",code:"ISO 50001",group:"iso",sub:"mgmt",name:"Energy Management System",fullName:"ISO 50001: Energy Management Systems — Requirements",desc:"Systematic framework for improving energy performance. Requires: identification of energy significant uses (ESUs — largest energy consumers like boiler feedwater pumps, fans, compressors), establishment of energy baselines and performance indicators (EnPIs — specific heat rate in GJ/MWh), setting energy objectives, measuring and monitoring energy consumption, and continual improvement. In power plants: drives heat rate improvement programs, auxiliary power reduction, and carbon efficiency reporting.",applies:["Plant heat rate optimization program","Auxiliary power consumption monitoring","Carbon credit and emission trading programs","Energy audit and benchmarking","EMS certification for utility operators"],refs:"Same PDCA as ISO 9001. Energy efficiency links to ISO 14001 (CO2 reduction). ASME PTC 46 measures plant energy performance for ISO 50001 baseline."},
+  {id:"iso-1940",code:"ISO 1940-1",group:"iso",sub:"tech",name:"Rotor Balance Quality Grades",fullName:"ISO 1940-1: Balance Quality Requirements for Rotors in a Constant (Rigid) State",desc:"Defines balance quality G-grades for rotating machine rotors. The G number = eccentricity (mm) × angular velocity (rad/s) = permissible specific unbalance × operating speed. G2.5: gas and steam turbines, large electric motors — very precise balance. G6.3: centrifugal pumps, fans, assembled aircraft gas turbine rotors. G16: fans, centrifuges, agricultural machinery. API 612/616 mandate G2.5 for turbine rotors.",applies:["Gas turbine rotors (G2.5 required)","Steam turbine rotors (G2.5 required)","Centrifugal pump impellers (G6.3)","Fan impellers (G6.3 to G16)","Electric motor rotors (G2.5 to G6.3)"],refs:"Mandated by API 612, 613, 616, 617. Balance machine calibration per ISO 2953. Residual unbalance calculation guides API 671 coupling balance."},
+  {id:"iso-20816",code:"ISO 20816",group:"iso",sub:"tech",name:"Machine Vibration — Casing",fullName:"ISO 20816 Series: Measurement and Evaluation of Machine Vibration (Non-Rotating Parts)",desc:"Defines acceptable vibration velocity (mm/s RMS) measured on bearing housings and machine casings. Part 1: General guidelines and four evaluation zones. Part 3: Industrial machines with power above 15 kW and speeds 120–15,000 RPM — most applicable to power plant equipment (pumps, fans, gearboxes, small turbines). Zone A: new machine (expected condition). Zone B: acceptable for continuous long-term operation. Zone C: alarm — investigate. Zone D: damage likely — shutdown required.",applies:["Pumps and pump motors","Fans (FD, ID, PA)","Gearboxes","Motor-driven compressors","Small steam and gas turbines"],refs:"Companion to ISO 7919 (shaft vibration). Both referenced in API 670 alarm/trip setting basis. Replaced ISO 10816."},
+  {id:"iso-7919",code:"ISO 7919",group:"iso",sub:"tech",name:"Shaft Vibration Limits",fullName:"ISO 7919 Series: Evaluation of Machine Vibration by Measurements on Rotating Shafts",desc:"Defines vibration limits measured directly on the rotating shaft using non-contacting eddy-current proximity probes, expressed as peak-to-peak displacement (µm pp). Part 2: Land-based steam turbines and generators over 50 MW. Part 3: Coupled industrial machines. Part 4: Gas turbines. Part 5: Machine sets in hydraulic power plants. Zone A/B/C/D zones analogous to ISO 20816.",applies:["Large steam turbine shafts (Part 2)","Gas turbine shafts (Part 4)","Generator shafts","Large compressor shafts","Coupled industrial machine trains"],refs:"Companion to ISO 20816 (casing vibration). Proximity probe specifications per API 670 Chapter 5 (eddy current, gap voltage, sensitivity)."},
+  {id:"iso-13709",code:"ISO 13709",group:"iso",sub:"tech",name:"Centrifugal Pumps (= API 610)",fullName:"ISO 13709: Centrifugal Pumps for Petroleum, Petrochemical, and Natural Gas Industries",desc:"Technically identical to API 610 — developed through a joint API/ISO committee. The two documents are technically equivalent; differences are limited to editorial conventions (units system, terminology). For international projects outside the USA (Middle East, Europe, Asia), the project specification may require ISO 13709 instead of API 610. Both can be used interchangeably on dual-specification projects with mutual agreement.",applies:["International projects specifying ISO route","European-regulated industrial plants","Projects with dual API/ISO specifications"],refs:"See API 610 for all technical detail. Seal systems per API 682 (no ISO equivalent for seal flush plans)."},
+  {id:"iso-13706",code:"ISO 13706",group:"iso",sub:"tech",name:"Air-Cooled HX (= API 661)",fullName:"ISO 13706: Air-Cooled Heat Exchangers",desc:"Technically near-identical to API 661. Used on international projects where the ISO route is specified. Minor differences exist in fan testing procedures and some dimensional conventions. Most large EPC contractors and project specifications accept either standard or cross-reference both. Covers the same scope: fin tube bundles, fans, drives, framework, and testing.",applies:["International fin-fan air cooler projects","European power plant and refinery air coolers","Dual-specification API 661/ISO 13706 projects"],refs:"See API 661 for full technical detail. Pressure containment per ASME BPVC §VIII (ASME projects) or PED/EN standards (European projects)."},
+  {id:"iso-15156",code:"ISO 15156",group:"iso",sub:"tech",name:"H₂S Service Materials",fullName:"ISO 15156: Materials for Use in H₂S-Containing Environments (Sour Service)",desc:"Technically identical to NACE MR0175 (now AMPP MR0175). Specifies materials resistant to sulphide stress cracking (SSC — brittle fracture caused by H₂S + tensile stress on susceptible high-strength steels), hydrogen-induced cracking (HIC — blistering/stepwise cracking in carbon steels), and stress-oriented hydrogen-induced cracking (SOHIC). Defines hardness limits (22 HRC max for carbon and low-alloy steels in H₂S service) and heat treatment requirements.",applies:["Sour natural gas fuel gas piping","Amine absorber and regenerator vessels","Sour water stripper systems","Wellhead and flowline equipment","H₂S-containing stream equipment"],refs:"Identical to NACE MR0175 / AMPP MR0175. Referenced whenever H₂S partial pressure exceeds 0.0003 MPa (0.05 psia) in the process."},
+  {id:"nfpa-70",code:"NFPA 70 (NEC)",group:"nfpa",sub:"nfpa",name:"National Electrical Code",fullName:"NFPA 70: National Electrical Code (NEC)",desc:"The primary US electrical installation code, adopted into law by most US states and localities and referenced internationally. Covers every aspect of electrical wiring: wiring methods (conduit, cable tray, cables), overcurrent protection (circuit breakers, fuses), grounding and bonding (Article 250), switchboards and panelboards, motors and controllers (Article 430), hazardous locations (Articles 500–516, Class/Division classification), generators (Article 445), emergency systems (Article 700), and energy storage (Article 706).",applies:["All electrical wiring and equipment in plant buildings","Motor wiring, starters and controls","Switchboards and panel installation","Hazardous area wiring (fuel gas, lube oil areas)","Emergency generator and UPS systems"],refs:"References IEEE 80/142 for grounding design basis. IEC 60079 for Ex equipment selection (international). Arc flash PPE per NFPA 70E. Compliance is mandatory by law in most US jurisdictions."},
+  {id:"nfpa-13",code:"NFPA 13",group:"nfpa",sub:"nfpa",name:"Sprinkler Systems",fullName:"NFPA 13: Standard for the Installation of Sprinkler Systems",desc:"The design and installation standard for automatic fire sprinkler systems. Covers: hazard occupancy classification (Light Hazard, Ordinary Hazard Groups 1 and 2, Extra Hazard Groups 1 and 2), density-area design method, pipe sizing by hydraulic calculation, sprinkler selection (upright, pendent, sidewall, ESFR early suppression fast response), hanger/brace requirements per pipe diameter, and acceptance tests (main drain, hydrostatic at 200 psi for 2 hours). Used throughout power plant buildings.",applies:["Turbine hall wet/dry sprinkler systems","Lube oil storage room deluge systems","Control building and offices","Cable tunnel and basement protection","Transformer deluge (oil-filled transformers)"],refs:"Water supply per NFPA 20 (fire pumps). Fire alarm per NFPA 72 (ties to alarm and deluge release). Hazard classification inputs from NFPA 30 (for flammable liquid areas)."},
+  {id:"nfpa-30",code:"NFPA 30",group:"nfpa",sub:"nfpa",name:"Flammable Liquids Code",fullName:"NFPA 30: Flammable and Combustible Liquids Code",desc:"Governs the safe storage, handling, and use of flammable liquids (flash point below 100°F/38°C — Class I) and combustible liquids (flash point at or above 100°F — Class II and III). Covers: above-ground and underground tank design, tank spacing and setback distances from buildings and property lines, secondary containment (diking) sizing, vent sizing for normal and emergency (fire exposure) conditions, pumping facilities, piping, and loading/unloading operations.",applies:["Fuel oil above-ground storage tanks","Diesel generator fuel day tanks","Lube oil storage tanks and drum storage","Fuel oil pump houses","Transformer oil containment"],refs:"Hazardous area classification feeds into NEC Article 500 and IEC 60079. Containment sizing works with NFPA 13 sprinkler design for suppression."},
+  {id:"nfpa-72",code:"NFPA 72",group:"nfpa",sub:"nfpa",name:"Fire Alarm & Signaling Code",fullName:"NFPA 72: National Fire Alarm and Signaling Code",desc:"The design and installation standard for fire detection and alarm systems. Covers: initiating devices (ionization and photoelectric smoke detectors, rate-of-rise and fixed temperature heat detectors, UV/IR flame detectors, combustible and toxic gas detectors, manual pull stations), notification appliances (horns, strobes, speakers, voice evacuation), fire alarm control panels (FACP), emergency communications systems, mass notification systems, and integration with suppression systems (deluge, sprinkler, gaseous suppression).",applies:["Plant-wide fire alarm network","Turbine hall flame and gas detection","Control room and administration fire alarm","Cable tunnels linear heat detection","PA/emergency evacuation system"],refs:"Alarm output to DCS/SCADA for operator response. Deluge release interfaces with NFPA 13 (sprinkler) and NFPA 15 (water spray systems). Fire pump per NFPA 20."},
+  {id:"nfpa-85",code:"NFPA 85",group:"nfpa",sub:"nfpa",name:"Boiler & Combustion Systems",fullName:"NFPA 85: Boiler and Combustion Systems Hazards Code",desc:"The safety code for burner management systems (BMS), combustion controls, and fuel/air system design to prevent furnace explosions (deflagration and detonation). Mandates: proper purge sequence (proven post-purge before any ignition attempt — minimum four air changes), flame failure detection requirements and response time (< 4 seconds fuel trip), fuel safety shutoff valve requirements (double block and bleed), interlock logic design, and operator interface. Chapter 6 covers single-burner boilers, Chapter 7 covers multiple-burner boilers, Chapter 8 covers stokers.",applies:["HRSG duct burner systems","Large utility boilers","Package steam boilers","Waste heat boilers with supplementary firing","Thermal oxidizers and incinerators"],refs:"BMS interfaces with API 616 (GT controls) and DCS. Fuel safety valves per ISA 84 (SIL) and IEC 61511. Works with ASME BPVC §I (boiler design code)."},
+  {id:"astm-a53",code:"ASTM A53",group:"astm",sub:"astm",name:"Black & Galvanized Steel Pipe",fullName:"ASTM A53: Pipe, Steel, Black and Hot-Dipped, Zinc-Coated, Welded and Seamless",desc:"The most common and economical carbon steel pipe specification for general service. Grade A (tensile strength 48 ksi min) and Grade B (tensile strength 60 ksi min — more common in power plants). Type S (seamless) and Type E (electric resistance welded). Used for low-to-moderate pressure and temperature applications: cooling water, firewater, compressed air, general utility steam, and structural/mechanical applications.",applies:["Cooling water distribution piping","Plant firewater network","Compressed air service piping","Low-pressure utility steam (<250°F)","General plant service piping"],refs:"High-temperature upgrade to ASTM A106. Referenced in ASME B31.1 (for allowable services) and B31.3. Galvanized (zinc-coated) version for outdoor/corrosive environments."},
+  {id:"astm-a106",code:"ASTM A106",group:"astm",sub:"astm",name:"Seamless Carbon Steel Pipe (High-Temp)",fullName:"ASTM A106: Seamless Carbon Steel Pipe for High-Temperature Service",desc:"The standard for seamless carbon steel pipe used in high-temperature (up to 750°F/400°C) pressure piping. Grade A (min 48 ksi tensile), Grade B (min 60 ksi — most common), Grade C (min 70 ksi). Must be seamless (no weld seam) to ensure integrity under pressure, thermal cycling, and mechanical loading. Mandatory for power plant steam and feedwater piping under ASME B31.1 for services above the ASTM A53 temperature/pressure limits.",applies:["Auxiliary and extraction steam piping","Boiler feedwater piping (lower temperature)","Blowdown and drain piping under pressure","Instrumentation root valve connections","Heating steam coil piping"],refs:"Referenced by ASME B31.1 allowable stress tables. High-temperature alloy upgrade: ASTM A335 (P11/P22/P91). Material qualification in ASME BPVC §II."},
+  {id:"astm-a335",code:"ASTM A335",group:"astm",sub:"astm",name:"Alloy Steel Pipe (P91 for Supercritical Steam)",fullName:"ASTM A335: Seamless Ferritic Alloy-Steel Pipe for High-Temperature Service",desc:"Alloy steel pipe grades for extreme high-temperature steam service: Grade P11 (1.25Cr-0.5Mo, service to ~1000°F/540°C), P22 (2.25Cr-1Mo, similar range), P91 (9Cr-1Mo-V, service to ~1150°F/620°C — the material of choice for ultra-supercritical (USC) and advanced ultra-supercritical (AUSC) plants). P91 has exceptional creep rupture strength but requires special handling: mandatory pre-heat, inter-pass temperature control, post-weld heat treatment (PWHT) at 730-780°C, and hardness verification.",applies:["Main steam piping in supercritical plants (P91)","Hot reheat piping (P91 or P22)","Superheater and reheater outlet headers","USC and AUSC boiler piping systems","High-temperature steam turbine leads"],refs:"Referenced in ASME B31.1 and BPVC §I. P91 welding procedure: mandatory PWHT per ASME BPVC §IX. Material test certification per EN 10204 3.2 (for critical applications)."},
+  {id:"aws-d11",code:"AWS D1.1",group:"aws",sub:"aws",name:"Structural Welding Code — Steel",fullName:"AWS D1.1: Structural Welding Code — Steel",desc:"The primary welding code for structural steel fabrication. Covers: prequalified joint details (groove and fillet welds without requiring individual WPS qualification testing), base metal and filler metal qualification requirements, welder qualification (different tests from ASME BPVC §IX — AWS D1.1 for structural, §IX for pressure), inspection methods and criteria (visual inspection per AWS D1.1 Table 6.1, PT, MT, UT, RT for complete joint penetration welds), and repair procedures.",applies:["Boiler and HRSG structural support steel","Pipe rack and equipment support fabrication","Turbine pedestal and foundation bolting","Building structural steel (turbine hall)","Equipment platform and access stairways"],refs:"Structural design per AISC 360. For pressure-containing welds: use ASME BPVC §IX (not AWS D1.1). Inspection per AWS D1.1 Table 6.1."},
+  {id:"nace-mr0175",code:"NACE MR0175",group:"ampp",sub:"ampp",name:"Sour Service Materials",fullName:"NACE MR0175 / AMPP MR0175: Materials for H₂S-Containing Environments (Sour Service)",desc:"Technically identical to ISO 15156. Specifies hardness limits (22 HRC maximum for carbon and low-alloy steels), heat treatment requirements, and approved material families that are resistant to: sulphide stress cracking (SSC — most common failure mode), hydrogen-induced cracking (HIC), stress-oriented hydrogen-induced cracking (SOHIC), and galvanic corrosion in H₂S-containing environments. Includes qualification testing requirements for non-standard materials.",applies:["Sour natural gas service piping and valves","Amine treating plant equipment","Sour water processing equipment","Wellhead equipment and flowlines","H₂S monitoring system equipment"],refs:"Identical to ISO 15156. Applied when H₂S partial pressure >0.0003 MPa absolute (0.05 psia) in the gas phase."},
+  {id:"ampp-sp0169",code:"AMPP SP0169",group:"ampp",sub:"ampp",name:"Cathodic Protection — Buried Pipes",fullName:"AMPP SP0169: Control of External Corrosion on Underground or Submerged Metallic Piping Systems",desc:"Recommended practice for designing, installing, and maintaining cathodic protection (CP) systems for buried and submerged metallic pipelines. Establishes protection criteria: pipe-to-soil potential of -850 mV (CSE) or more negative (for carbon steel), or 100 mV polarization criterion. Covers: coating selection and application (fusion-bonded epoxy, polyethylene tape, CTE), sacrificial anode systems (zinc, magnesium), impressed current systems (ICCP), test station installation, and annual CP surveys.",applies:["Buried natural gas fuel lines","Underground cooling water mains","Buried fuel oil pipelines","Plant buried utility pipes in aggressive soils","Underground fire water mains (uncoated steel)"],refs:"Works with NFPA 30 (fuel line requirements). Coating holiday testing per NACE SP0188. Interference current assessment per AMPP SP0177."},
+  {id:"tema-r",code:"TEMA Class R/C/B",group:"tema",sub:"tema",name:"Shell-and-Tube HX Thermal Design",fullName:"TEMA: Tubular Exchanger Manufacturers Association Standards — Classes R, C, and B",desc:"The thermal and mechanical design standard for shell-and-tube heat exchangers, complementing ASME BPVC §VIII (pressure containment) and API 660 (API specification layer). TEMA defines: tube pitch and layout angles, baffle cut and spacing, shell-to-bundle clearances, pass partition plate thicknesses, nozzle sizes, and fabrication tolerances. Class R: severe petroleum/power service — most stringent. Class C: commercial/light-duty service. Class B: chemical service — intermediate. TEMA type designation (e.g. BEM, AEL, NEN) describes front head / shell type / rear head type.",applies:["Feedwater heaters (shell and tube)","Lube oil coolers (shell and tube)","Gland steam condensers","Hydrogen coolers for generators","Process gas coolers and heaters"],refs:"Used with ASME BPVC §VIII (pressure side) and API 660 (API-specific requirements). Tube materials from ASME BPVC §II and ASTM. Thermal calculation software: HTRI or Aspen Exchanger Design & Rating."}
+];
+
+const STD_MAP = {};
+STANDARDS.forEach(s => { STD_MAP[s.id] = s; });
+
+const BODY_COLOR = {asme:'#2196f3',api:'#ff6d00',ieee:'#ce93d8',iec:'#b39ddb',iso:'#66bb6a',nfpa:'#ef5350',astm:'#a1887f',aws:'#ffcc02',ampp:'#80deea',tema:'#f48fb1'};
+const BODY_LABEL = {asme:'ASME',api:'API',ieee:'IEEE',iec:'IEC',iso:'ISO',nfpa:'NFPA',astm:'ASTM',aws:'AWS',ampp:'AMPP/NACE',tema:'TEMA'};
+
+function makeCard(std) {
+  const div = document.createElement('div');
+  div.className = `std-card ${std.group}`;
+  div.dataset.id = std.id;
+  div.innerHTML = `<div class="card-code">${std.code}</div><div class="card-name">${std.name}</div><span class="card-tag">${BODY_LABEL[std.group]||std.group.toUpperCase()}</span>`;
+  div.addEventListener('click', () => showDetail(std.id));
+  return div;
+}
+
+function showDetail(id) {
+  const s = STD_MAP[id];
+  if (!s) return;
+
+  const isMobile = window.innerWidth <= 1100;
+  const color = BODY_COLOR[s.group] || '#42a5f5';
+
+  document.querySelectorAll('.std-card').forEach(c => c.classList.remove('active-selected'));
+  const clickedCards = document.querySelectorAll(`[data-id="${id}"]`);
+  clickedCards.forEach(c => c.classList.add('active-selected'));
+
+  if (isMobile) {
+    let mobileBox = document.getElementById('mobile-inline-detail');
+    if (!mobileBox) {
+      mobileBox = document.createElement('div');
+      mobileBox.id = 'mobile-inline-detail';
+      mobileBox.className = 'mobile-inline-detail';
+    }
+
+    mobileBox.innerHTML = `
+      <div class="detail-header-row">
+        <div class="d-icon" style="background:${color}1a;color:${color};border:1px solid ${color}40">${(BODY_LABEL[s.group]||s.group).substring(0,4)}</div>
+        <div>
+          <div class="d-code" style="color:${color}">${s.code}</div>
+          <div class="d-fullname">${s.fullName}</div>
+        </div>
+      </div>
+      <div class="d-badge" style="background:${color}1a;color:${color};border:1px solid ${color}40">${BODY_LABEL[s.group]||s.group.toUpperCase()}</div>
+      <div class="d-label">📖 Purpose &amp; Scope</div>
+      <div class="d-desc">${s.desc}</div>
+      <div class="d-label">🏭 Applies To</div>
+      <div class="d-applies">${(s.applies||[]).map(a => `<span class="d-tag">${a}</span>`).join('')}</div>
+      ${s.refs ? `<div class="d-label">🔗 References &amp; Linked Standards</div><div class="d-refs">${s.refs}</div>` : ''}
+    `;
+
+    const activePanel = document.querySelector('.panel.active');
+    const activeCard = activePanel ? activePanel.querySelector(`[data-id="${id}"]`) : clickedCards[0];
+
+    if (activeCard) {
+      activeCard.after(mobileBox);
+      mobileBox.style.display = 'block';
+      setTimeout(() => {
+        mobileBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  } else {
+    const mobileBox = document.getElementById('mobile-inline-detail');
+    if (mobileBox) mobileBox.style.display = 'none';
+
+    document.getElementById('detail-empty-msg').style.display = 'none';
+    const body = document.getElementById('detail-body');
+    body.classList.add('visible');
+    
+    const icon = document.getElementById('d-icon');
+    icon.style.cssText = `background:${color}1a;color:${color};border:1px solid ${color}40`;
+    icon.textContent = (BODY_LABEL[s.group]||s.group).substring(0,4);
+    
+    const code = document.getElementById('d-code');
+    code.style.color = color; code.textContent = s.code;
+    document.getElementById('d-fullname').textContent = s.fullName;
+    
+    const badge = document.getElementById('d-badge');
+    badge.textContent = BODY_LABEL[s.group]||s.group.toUpperCase();
+    badge.style.cssText = `background:${color}1a;color:${color};border:1px solid ${color}40`;
+    
+    document.getElementById('d-desc').textContent = s.desc;
+    
+    const app = document.getElementById('d-applies');
+    app.innerHTML = '';
+    (s.applies||[]).forEach(a => { const t = document.createElement('span'); t.className='d-tag'; t.textContent=a; app.appendChild(t); });
+    
+    const rw = document.getElementById('d-ref-wrap');
+    if (s.refs) { rw.style.display=''; document.getElementById('d-refs').textContent=s.refs; }
+    else rw.style.display='none';
+  }
+}
+
+function buildGroup(id, filter) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  c.innerHTML = '';
+  STANDARDS.filter(filter).forEach(s => c.appendChild(makeCard(s)));
+}
+
+function buildAll() {
+  buildGroup('ga-asme', s => s.group==='asme');
+  buildGroup('ga-api',  s => s.group==='api');
+  buildGroup('ga-ieee', s => s.group==='ieee');
+  buildGroup('ga-iec',  s => s.group==='iec');
+  buildGroup('ga-iso',  s => s.group==='iso');
+  buildGroup('ga-fire', s => ['nfpa','astm','aws','ampp','tema'].includes(s.group));
+  buildGroup('fg-bpvc', s => s.group==='asme' && s.sub==='bpvc');
+  buildGroup('fg-b31',  s => s.group==='asme' && s.sub==='b31');
+  buildGroup('fg-ptc',  s => s.group==='asme' && s.sub==='ptc');
+  buildGroup('fg-api-pumps', s => s.group==='api' && s.sub==='pumps');
+  buildGroup('fg-api-turb',  s => s.group==='api' && s.sub==='turb');
+  buildGroup('fg-api-comp',  s => s.group==='api' && s.sub==='comp');
+  buildGroup('fg-api-aux',   s => s.group==='api' && s.sub==='aux');
+  buildGroup('fg-api-misc',  s => s.group==='api' && s.sub==='misc');
+  buildGroup('fg-ieee-gen',  s => s.group==='ieee' && s.sub==='gen');
+  buildGroup('fg-ieee-sys',  s => s.group==='ieee' && s.sub==='sys');
+  buildGroup('fg-ieee-prot', s => s.group==='ieee' && s.sub==='prot');
+  buildGroup('fg-ieee-inst', s => s.group==='ieee' && s.sub==='inst');
+  buildGroup('fg-iec',       s => s.group==='iec');
+  buildGroup('fg-iso-mgmt',  s => s.group==='iso' && s.sub==='mgmt');
+  buildGroup('fg-iso-tech',  s => s.group==='iso' && s.sub==='tech');
+  buildGroup('fg-nfpa', s => s.group==='nfpa');
+  buildGroup('fg-astm', s => s.group==='astm');
+  buildGroup('fg-aws',  s => s.group==='aws');
+  buildGroup('fg-ampp', s => s.group==='ampp');
+  buildGroup('fg-tema', s => s.group==='tema');
+  const lc = {
+    'lc-design':  ['bpvc-i','bpvc-viii-d1','b31-1','b31-8','api-616','api-612','api-610','ieee-399'],
+    'lc-fab':     ['bpvc-ii','bpvc-v','bpvc-ix','astm-a106','astm-a335','aws-d11'],
+    'lc-install': ['api-686','iso-1940','nfpa-70','ieee-80','ieee-142'],
+    'lc-test':    ['ptc-6','ptc-22','ptc-46','ieee-115','api-670','ieee-1584'],
+    'lc-ops':     ['iso-20816','iso-7919','iso-9001','iso-45001','api-670']
+  };
+  Object.entries(lc).forEach(([cid,ids]) => {
+    const cont = document.getElementById(cid);
+    if (!cont) return;
+    cont.innerHTML = '';
+    ids.forEach(id => { const s = STD_MAP[id]; if (s) cont.appendChild(makeCard(s)); });
+  });
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const p = document.getElementById('panel-'+tab.dataset.tab);
+    if (p) p.classList.add('active');
+    const mobileBox = document.getElementById('mobile-inline-detail');
+    if (mobileBox) mobileBox.style.display = 'none';
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  document.querySelectorAll('.std-card').forEach(card => {
+    if (!q) { card.style.display=''; return; }
+    const s = STD_MAP[card.dataset.id];
+    if (!s) { card.style.display='none'; return; }
+    const txt = `${s.code} ${s.name} ${s.fullName} ${s.desc} ${(s.applies||[]).join(' ')}`.toLowerCase();
+    card.style.display = txt.includes(q) ? '' : 'none';
+  });
+});
+
+buildAll();
+</script>
+</body>
+</html>
