@@ -1,3 +1,0 @@
-# Google AdSense Authorized Sellers File
-# Replace ca-pub-XXXXXXXXXXXXXXXX with your actual Google AdSense Publisher ID
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
